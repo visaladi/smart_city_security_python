@@ -5,7 +5,7 @@ import os
 # ============================================================
 os.environ["HADOOP_HOME"] = ""
 os.environ["hadoop.home.dir"] = ""
-os.environ["SPARK_HOME"] = ""
+#os.environ["SPARK_HOME"] = ""
 os.environ["ARROW_PRE_0_15_IPC_FORMAT"] = "1"
 
 from pyspark.sql import SparkSession
