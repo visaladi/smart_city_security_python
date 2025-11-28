@@ -1,22 +1,47 @@
+import os
+
+# ============================================================
+# DISABLE HADOOP ON WINDOWS (NO WINUTILS NEEDED)
+# ============================================================
+os.environ["HADOOP_HOME"] = ""
+os.environ["hadoop.home.dir"] = ""
+os.environ["SPARK_HOME"] = ""
+os.environ["ARROW_PRE_0_15_IPC_FORMAT"] = "1"
+
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType
 from pyspark.sql.functions import from_json, col, window, avg, sum as _sum
 
-# ---------- DB CONFIG (YOUR DATASOURCE) ----------
+# ============================================================
+# DATABASE CONFIG
+# ============================================================
 DB_URL = "jdbc:postgresql://localhost:5432/smart_city_traffic"
 DB_USER = "postgres"
 DB_PASSWORD = "0956"
 
-# ---------- Spark Session ----------
+
+# ============================================================
+# SPARK SESSION (NO HADOOP MODE)
+# ============================================================
 spark = (
     SparkSession.builder
     .appName("SmartCityTrafficStreaming")
+    .master("local[*]")  # IMPORTANT: run locally, no Hadoop cluster
+    # FORCE LOCAL FILESYSTEM INSTEAD OF HADOOP FS
+    .config("spark.hadoop.fs.file.impl", "org.apache.hadoop.fs.LocalFileSystem")
+    .config("spark.hadoop.fs.hdfs.impl", "org.apache.hadoop.fs.LocalFileSystem")
+
+    # JDBC driver
     .config("spark.jars.packages", "org.postgresql:postgresql:42.7.1")
     .getOrCreate()
 )
+
 spark.sparkContext.setLogLevel("WARN")
 
-# ---------- Schema for incoming JSON ----------
+
+# ============================================================
+# KAFKA MESSAGE SCHEMA
+# ============================================================
 schema = StructType([
     StructField("sensor_id", StringType(), True),
     StructField("timestamp", StringType(), True),
@@ -24,11 +49,14 @@ schema = StructType([
     StructField("avg_speed", DoubleType(), True),
 ])
 
-# ---------- Read from Kafka ----------
+
+# ============================================================
+# READ FROM KAFKA
+# ============================================================
 raw_df = (
     spark.readStream
     .format("kafka")
-    .option("kafka.bootstrap.servers", "localhost:9092")  # or kafka-smartcity:9092 if inside Docker
+    .option("kafka.bootstrap.servers", "localhost:29092")
     .option("subscribe", "traffic_raw")
     .option("startingOffsets", "latest")
     .load()
@@ -43,7 +71,10 @@ parsed_df = (
     .withColumn("event_time", col("timestamp").cast("timestamp"))
 )
 
-# ---------- Windowed aggregates (5-minute windows) ----------
+
+# ============================================================
+# 5-MINUTE WINDOW AGGREGATIONS
+# ============================================================
 windowed_df = (
     parsed_df
     .groupBy(
@@ -60,7 +91,8 @@ windowed_df = (
     )
 )
 
-# Print the windowed congestion info to console (for demo/report screenshots)
+
+# Print the windowed results to console
 windowed_query = (
     windowed_df
     .writeStream
@@ -72,7 +104,10 @@ windowed_query = (
     .start()
 )
 
-# ---------- Alerts: avg_speed < 10 ----------
+
+# ============================================================
+# ALERTS (avg_speed < 10)
+# ============================================================
 alerts_df = parsed_df.filter(col("avg_speed") < 10)
 
 alerts_query = (
@@ -85,7 +120,10 @@ alerts_query = (
     .start()
 )
 
-# ---------- Write all events to Postgres ----------
+
+# ============================================================
+# WRITE TO POSTGRES
+# ============================================================
 def write_to_postgres(batch_df, batch_id):
     (
         batch_df
@@ -101,6 +139,7 @@ def write_to_postgres(batch_df, batch_id):
         .save()
     )
 
+
 events_query = (
     parsed_df
     .writeStream
@@ -110,4 +149,8 @@ events_query = (
     .start()
 )
 
+
+# ============================================================
+# START STREAMING
+# ============================================================
 spark.streams.awaitAnyTermination()
