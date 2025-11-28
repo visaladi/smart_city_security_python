@@ -7,7 +7,7 @@ from kafka import KafkaProducer
 SENSORS = ["J1", "J2", "J3", "J4"]
 
 producer = KafkaProducer(
-    bootstrap_servers="localhost:9092",  # your Kafka broker
+    bootstrap_servers="localhost:29092",  # your Kafka broker
     value_serializer=lambda v: json.dumps(v).encode("utf-8"),
 )
 
