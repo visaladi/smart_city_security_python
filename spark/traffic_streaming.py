@@ -30,15 +30,8 @@ spark = (
     # use local filesystem instead of HDFS
     .config("spark.hadoop.fs.file.impl", "org.apache.hadoop.fs.LocalFileSystem")
     .config("spark.hadoop.fs.hdfs.impl", "org.apache.hadoop.fs.LocalFileSystem")
-    # 🔥 add Kafka + Postgres connector jars
-    .config(
-        "spark.jars.packages",
-        "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.7,"
-        "org.postgresql:postgresql:42.7.1"
-    )
     .getOrCreate()
 )
-
 
 spark.sparkContext.setLogLevel("WARN")
 
