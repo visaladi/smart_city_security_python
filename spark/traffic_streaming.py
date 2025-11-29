@@ -3,8 +3,8 @@ import os
 # ============================================================
 # DISABLE HADOOP ON WINDOWS (NO WINUTILS NEEDED)
 # ============================================================
-os.environ["HADOOP_HOME"] = ""
-os.environ["hadoop.home.dir"] = ""
+#os.environ["HADOOP_HOME"] = ""
+#os.environ["hadoop.home.dir"] = ""
 #os.environ["SPARK_HOME"] = ""
 os.environ["ARROW_PRE_0_15_IPC_FORMAT"] = "1"
 
