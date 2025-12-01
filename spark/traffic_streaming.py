@@ -1,19 +1,14 @@
-#spark/traffic_streaming.py
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, LongType, IntegerType, DoubleType
+from pyspark.sql.types import (
+    StructType, StructField, StringType, LongType, IntegerType, DoubleType
+)
 from pyspark.sql.functions import (
-    col,
-    from_json,
-    from_unixtime,
-    to_timestamp,
-    window,
-    avg,
-    count,
-    when
+    col, from_json, from_unixtime, to_timestamp,
+    window, avg, count, when
 )
 
-KAFKA_BOOTSTRAP = "localhost:29092"   # match your docker-compose (kafka-smartcity)
-TRAFFIC_TOPIC = "traffic-data"        # match Spring Boot producer
+KAFKA_BOOTSTRAP = "localhost:29092"
+TRAFFIC_TOPIC = "traffic_raw"   # same as your producer
 
 spark = (
     SparkSession.builder
@@ -24,15 +19,15 @@ spark = (
 
 spark.sparkContext.setLogLevel("WARN")
 
-# Schema of your JSON messages from Spring Boot producer
+# Match your producer schema
 schema = StructType([
-    StructField("sensorId", StringType(), True),
+    StructField("sensor_id", StringType(), True),
     StructField("timestamp", LongType(), True),       # epoch seconds
-    StructField("vehicleCount", IntegerType(), True),
-    StructField("avgSpeed", DoubleType(), True)
+    StructField("vehicle_count", IntegerType(), True),
+    StructField("avg_speed", DoubleType(), True),
 ])
 
-# 1. Read from Kafka as streaming source
+# 1) Read Kafka stream
 raw_stream = (
     spark.readStream
         .format("kafka")
@@ -47,15 +42,15 @@ parsed = (
         .selectExpr("CAST(value AS STRING) as json_str")
         .select(from_json(col("json_str"), schema).alias("data"))
         .select(
-            col("data.sensorId").alias("sensor_id"),
+            col("data.sensor_id").alias("sensor_id"),
             to_timestamp(from_unixtime(col("data.timestamp"))).alias("event_time"),
-            col("data.vehicleCount").cast("double").alias("vehicle_count"),
-            col("data.avgSpeed").cast("double").alias("avg_speed")
+            col("data.vehicle_count").cast("double").alias("vehicle_count"),
+            col("data.avg_speed").cast("double").alias("avg_speed"),
         )
         .where(col("event_time").isNotNull())
 )
 
-# 2. Windowed congestion metrics
+# 2) 5-minute windowed congestion metrics (streaming)
 windowed = (
     parsed
         .withWatermark("event_time", "10 minutes")
@@ -84,11 +79,11 @@ congestion = (
             col("records"),
             col("avg_vehicle_count"),
             col("avg_speed"),
-            col("congestion_index")
+            col("congestion_index"),
         )
 )
 
-# 3. Critical alerts (speed < 10)
+# 3) Critical alerts (avg_speed < 10)
 alerts = parsed.where(col("avg_speed") < 10)
 
 # Sink 1: print congestion metrics
@@ -97,7 +92,7 @@ query_congestion = (
         .outputMode("update")
         .format("console")
         .option("truncate", "false")
-        .option("checkpointLocation", "file:///C:/tmp/spark_checkpoints/congestion")  # adjust
+        .option("checkpointLocation", "file:///C:/tmp/spark_checkpoints/congestion")
         .start()
 )
 
@@ -107,7 +102,7 @@ query_alerts = (
         .outputMode("append")
         .format("console")
         .option("truncate", "false")
-        .option("checkpointLocation", "file:///C:/tmp/spark_checkpoints/alerts")      # adjust
+        .option("checkpointLocation", "file:///C:/tmp/spark_checkpoints/alerts")
         .start()
 )
 
