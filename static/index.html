@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart City Traffic Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card-bg: #141b2f;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.15);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --ok: #16a34a;
+      --warn: #eab308;
+      --danger: #dc2626;
+      --border: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .title-block h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .title-pill {
+      font-size: 0.8rem;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+    }
+
+    .title-block p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.12);
+      color: var(--ok);
+      font-size: 0.8rem;
+      border: 1px solid rgba(22, 163, 74, 0.3);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 8px rgba(22, 163, 74, 0.8);
+    }
+
+    .refresh-info {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      cursor: pointer;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
+      background: linear-gradient(135deg, #1f2937, #111827);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      background: radial-gradient(circle at top left, #1d253b, #020617);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .panel {
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      padding: 1rem 1.1rem;
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(18px);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.7rem;
+      gap: 0.5rem;
+    }
+
+    .panel-header h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .panel-header span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    /* Sensor cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    .card {
+      border-radius: 0.9rem;
+      padding: 0.7rem 0.75rem;
+      background: radial-gradient(circle at top left, #1e293b, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.1), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sensor-id {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-window {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .metric-main {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-top: 0.1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .congestion-value {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .severity-pill {
+      font-size: 0.75rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .severity-low {
+      color: var(--ok);
+      border-color: rgba(22, 163, 74, 0.4);
+      background: rgba(22, 163, 74, 0.08);
+    }
+
+    .severity-med {
+      color: var(--warn);
+      border-color: rgba(234, 179, 8, 0.45);
+      background: rgba(234, 179, 8, 0.08);
+    }
+
+    .severity-high {
+      color: var(--danger);
+      border-color: rgba(220, 38, 38, 0.5);
+      background: rgba(220, 38, 38, 0.09);
+    }
+
+    .metric-sub {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      gap: 0.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .metric-sub span strong {
+      color: var(--text-main);
+    }
+
+    /* Raw table */
+    .table-wrapper {
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-top: 0.5rem;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), rgba(2, 6, 23, 1));
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+
+    thead {
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    th, td {
+      padding: 0.4rem 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.85);
+      white-space: nowrap;
+    }
+
+    th {
+      font-weight: 500;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    tbody tr:nth-child(odd) {
+      background: rgba(15, 23, 42, 0.4);
+    }
+
+    .td-sensor {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #e5e7eb;
+    }
+
+    .td-speed {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-right: 4px;
+    }
+
+    .status-fast  { background: var(--ok); }
+    .status-mid   { background: var(--warn); }
+    .status-slow  { background: var(--danger); }
+
+    footer {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .error-banner {
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: #f97316;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="title-block">
+        <h1>
+          Smart City Traffic
+          <span class="title-pill">Big Data Mini Project</span>
+        </h1>
+        <p>Real-time congestion monitoring • Kafka · Spark · PostgreSQL · FastAPI</p>
+      </div>
+      <div class="controls">
+        <div class="badge-live">
+          <span class="dot"></span>
+          Live stream
+        </div>
+        <div class="refresh-info">
+          Auto-refresh: <strong>5s</strong> &nbsp;|&nbsp;
+          Last updated: <span id="last-updated">–</span>
+        </div>
+        <button class="btn" id="btn-refresh">
+          ⟳ Refresh now
+        </button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- Left: Aggregated congestion cards -->
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>5-Minute Congestion per Junction</h2>
+            <span>Windowed aggregates from <code>traffic_aggregates</code></span>
+          </div>
+          <div class="chips">
+            <span class="chip">Index = 0.7 × vehicles + 0.3 × penalty(speed&lt;30)</span>
+          </div>
+        </div>
+
+        <div id="aggregates-cards" class="cards-grid">
+          <!-- Filled by JS -->
+        </div>
+
+        <div id="agg-error" class="error-banner" style="display:none;"></div>
+      </section>
+
+      <!-- Right: Raw stream table -->
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Latest Raw Traffic Events</h2>
+            <span>Recent messages from <code>traffic_readings</code></span>
+          </div>
+          <span style="font-size:0.78rem;color:var(--text-muted);">Showing last 50 rows</span>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Sensor</th>
+                <th>Event time</th>
+                <th>Vehicles</th>
+                <th>Avg speed (km/h)</th>
+              </tr>
+            </thead>
+            <tbody id="raw-table-body">
+              <!-- Filled by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="raw-error" class="error-banner" style="display:none;"></div>
+      </section>
+    </main>
+
+    <footer>
+      Kafka (traffic_raw) → db_loader.py → PostgreSQL → Spark (batch/stream) → FastAPI → HTML Dashboard
+    </footer>
+  </div>
+
+  <script>
+    const API_BASE = window.location.origin;
+
+    function fmtTime(isoOrPg) {
+      if (!isoOrPg) return "–";
+      // Works for both ISO strings and "YYYY-MM-DD HH:MM:SS" from Postgres
+      const t = new Date(isoOrPg.replace(" ", "T"));
+      if (isNaN(t.getTime())) return isoOrPg;
+      return t.toLocaleString();
+    }
+
+    function fmtNumber(x, decimals = 2) {
+      if (x === null || x === undefined) return "–";
+      return Number(x).toFixed(decimals);
+    }
+
+    function severityForIndex(idx) {
+      if (idx === null || idx === undefined) return { label: "unknown", class: "" };
+      if (idx < 13)   return { label: "low", class: "severity-low" };
+      if (idx < 15.5) return { label: "moderate", class: "severity-med" };
+      return { label: "high", class: "severity-high" };
+    }
+
+    function statusClassForSpeed(speed) {
+      if (speed >= 25) return "status-fast";
+      if (speed >= 15) return "status-mid";
+      return "status-slow";
+    }
+
+    async function loadAggregates() {
+      const cards = document.getElementById("aggregates-cards");
+      const err = document.getElementById("agg-error");
+      err.style.display = "none";
+      try {
+        const res = await fetch(`${API_BASE}/api/aggregates/latest`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          cards.innerHTML = "<p style='font-size:0.85rem;color:#9ca3af;'>No aggregate data yet. Run Spark batch or streaming job.</p>";
+          return;
+        }
+
+        cards.innerHTML = data.map(row => {
+          const idx = Number(row.congestion_index);
+          const sev = severityForIndex(idx);
+          const speedStr = fmtNumber(row.avg_speed, 2);
+          const vehStr = fmtNumber(row.avg_vehicle_count, 1);
+          const windowStart = fmtTime(row.window_start);
+          const windowEnd = fmtTime(row.window_end);
+
+          return `
+            <article class="card">
+              <div class="card-header">
+                <div class="sensor-id">Sensor ${row.sensor_id}</div>
+                <div class="badge-window">${windowStart.split(",")[1] || windowStart} → ${windowEnd.split(",")[1] || windowEnd}</div>
+              </div>
+              <div class="metric-main">
+                <div>
+                  <div style="font-size:0.7rem;color:var(--text-muted);">Congestion index</div>
+                  <div class="congestion-value">${fmtNumber(idx, 2)}</div>
+                </div>
+                <span class="severity-pill ${sev.class}">${sev.label}</span>
+              </div>
+              <div class="metric-sub">
+                <span>
+                  <span class="status-dot ${statusClassForSpeed(row.avg_speed)}"></span>
+                  <strong>${speedStr}</strong> km/h avg speed
+                </span>
+                <span>
+                  <strong>${vehStr}</strong> vehicles · ${row.records} records
+                </span>
+              </div>
+            </article>
+          `;
+        }).join("");
+      } catch (e) {
+        console.error(e);
+        err.textContent = "Failed to load aggregates. Is Spark batch/stream and PostgreSQL running?";
+        err.style.display = "block";
+      }
+    }
+
+    async function loadRaw() {
+      const body = document.getElementById("raw-table-body");
+      const err = document.getElementById("raw-error");
+      err.style.display = "none";
+      try {
+        const res = await fetch(`${API_BASE}/api/raw/latest?limit=50`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          body.innerHTML = `
+            <tr><td colspan="4" style="text-align:center;color:#9ca3af;padding:0.7rem;">
+              Waiting for traffic events from Kafka...
+            </td></tr>`;
+          return;
+        }
+
+        body.innerHTML = data.map(row => {
+          const speed = Number(row.avg_speed || 0);
+          const statusClass = statusClassForSpeed(speed);
+          return `
+            <tr>
+              <td class="td-sensor">${row.sensor_id}</td>
+              <td>${fmtTime(row.event_time)}</td>
+              <td>${row.vehicle_count}</td>
+              <td class="td-speed">
+                <span class="status-dot ${statusClass}"></span>${fmtNumber(speed, 2)}
+              </td>
+            </tr>
+          `;
+        }).join("");
+      } catch (e) {
+        console.error(e);
+        err.textContent = "Failed to load raw events. Is db_loader.py writing into PostgreSQL?";
+        err.style.display = "block";
+      }
+    }
+
+    function updateLastUpdated() {
+      document.getElementById("last-updated").textContent =
+        new Date().toLocaleTimeString();
+    }
+
+    async function refreshAll() {
+      await Promise.all([loadAggregates(), loadRaw()]);
+      updateLastUpdated();
+    }
+
+    document.getElementById("btn-refresh").addEventListener("click", refreshAll);
+
+    // Initial load
+    refreshAll();
+
+    // Auto-refresh every 5s
+    setInterval(refreshAll, 5000);
+  </script>
+</body>
+</html>

@@ -65,7 +65,7 @@ def get_latest_aggregates():
     conn.close()
     return rows
 
-# Serve static frontend
+# Serve static static
 app.mount(
     "/", StaticFiles(directory="static", html=True), name="static"
 )
