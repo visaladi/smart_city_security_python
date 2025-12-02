@@ -362,6 +362,28 @@
       font-size: 0.78rem;
       color: #f97316;
     }
+
+    /* ---- Critical alert styling (Option 2) ---- */
+    #alert-banner {
+      margin-bottom: 0.5rem;
+      font-size: 0.82rem;
+      color: #fecaca;
+      background: rgba(220, 38, 38, 0.18);
+      border: 1px solid #dc2626;
+      padding: 0.4rem 0.6rem;
+      border-radius: 0.5rem;
+      display: none; /* hidden by default */
+    }
+
+    @keyframes alert-blink {
+      0%   { opacity: 1;   box-shadow: 0 0 0 rgba(220,38,38,0.7); }
+      50%  { opacity: 0.4; box-shadow: 0 0 16px rgba(220,38,38,0.8); }
+      100% { opacity: 1;   box-shadow: 0 0 0 rgba(220,38,38,0.7); }
+    }
+
+    #alert-banner.alert-active {
+      animation: alert-blink 1s infinite;
+    }
   </style>
 
   <!-- Chart.js CDN -->
@@ -393,7 +415,7 @@
     </header>
 
     <main class="layout">
-      <!-- Left: Aggregated congestion cards + graph -->
+      <!-- Left: Aggregated congestion cards + graph + critical alert -->
       <section class="panel">
         <div class="panel-header">
           <div>
@@ -403,6 +425,11 @@
           <div class="chips">
             <span class="chip">Index = 0.7 × vehicles + 0.3 × penalty(speed&lt;30)</span>
           </div>
+        </div>
+
+        <!-- Critical alert banner (Option 2) -->
+        <div id="alert-banner">
+          ⚠ Critical congestion detected: at least one junction has speed below 10 km/h.
         </div>
 
         <div id="aggregates-cards" class="cards-grid">
@@ -585,7 +612,9 @@
     async function loadRaw() {
       const body = document.getElementById("raw-table-body");
       const err = document.getElementById("raw-error");
+      const alertBanner = document.getElementById("alert-banner");
       err.style.display = "none";
+
       try {
         const res = await fetch(`${API_BASE}/api/raw/latest?limit=50`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -596,9 +625,13 @@
             <tr><td colspan="4" style="text-align:center;color:#9ca3af;padding:0.7rem;">
               Waiting for traffic events from Kafka...
             </td></tr>`;
+          // no data → hide alert
+          alertBanner.style.display = "none";
+          alertBanner.classList.remove("alert-active");
           return;
         }
 
+        // Fill table
         body.innerHTML = data.map(row => {
           const speed = Number(row.avg_speed || 0);
           const statusClass = statusClassForSpeed(speed);
@@ -613,10 +646,28 @@
             </tr>
           `;
         }).join("");
+
+        // ---- Critical alert logic (Option 2) ----
+        const hasCritical = data.some(row => Number(row.avg_speed || 0) < 10);
+
+        if (hasCritical) {
+          alertBanner.style.display = "block";
+          alertBanner.classList.add("alert-active");
+          alertBanner.textContent =
+            "⚠ Critical congestion detected: at least one junction has speed below 10 km/h.";
+        } else {
+          alertBanner.style.display = "none";
+          alertBanner.classList.remove("alert-active");
+        }
       } catch (e) {
         console.error(e);
         err.textContent = "Failed to load raw events. Is db_loader.py writing into PostgreSQL?";
         err.style.display = "block";
+
+        // on error, don't show critical alert (to avoid confusion)
+        const alertBanner = document.getElementById("alert-banner");
+        alertBanner.style.display = "none";
+        alertBanner.classList.remove("alert-active");
       }
     }
 
