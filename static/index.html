@@ -277,6 +277,17 @@
       color: var(--text-main);
     }
 
+    /* Chart container under cards */
+    #chart-container {
+      margin-top: 0.9rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed rgba(55, 65, 81, 0.7);
+    }
+
+    #congestionChart {
+      width: 100%;
+    }
+
     /* Raw table */
     .table-wrapper {
       border-radius: 0.75rem;
@@ -352,6 +363,9 @@
       color: #f97316;
     }
   </style>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="page">
@@ -379,7 +393,7 @@
     </header>
 
     <main class="layout">
-      <!-- Left: Aggregated congestion cards -->
+      <!-- Left: Aggregated congestion cards + graph -->
       <section class="panel">
         <div class="panel-header">
           <div>
@@ -393,6 +407,11 @@
 
         <div id="aggregates-cards" class="cards-grid">
           <!-- Filled by JS -->
+        </div>
+
+        <!-- Graph below cards -->
+        <div id="chart-container">
+          <canvas id="congestionChart" height="120"></canvas>
         </div>
 
         <div id="agg-error" class="error-banner" style="display:none;"></div>
@@ -435,11 +454,11 @@
 
   <script>
     const API_BASE = window.location.origin;
+    let congestionChart = null;
 
     function fmtTime(isoOrPg) {
       if (!isoOrPg) return "–";
-      // Works for both ISO strings and "YYYY-MM-DD HH:MM:SS" from Postgres
-      const t = new Date(isoOrPg.replace(" ", "T"));
+      const t = new Date(String(isoOrPg).replace(" ", "T"));
       if (isNaN(t.getTime())) return isoOrPg;
       return t.toLocaleString();
     }
@@ -460,6 +479,50 @@
       if (speed >= 25) return "status-fast";
       if (speed >= 15) return "status-mid";
       return "status-slow";
+    }
+
+    // ----- Chart.js helper -----
+    function updateChart(rows) {
+      const ctx = document.getElementById("congestionChart").getContext("2d");
+      const labels = rows.map(r => r.sensor_id);
+      const values = rows.map(r => Number(r.congestion_index || 0));
+
+      if (!congestionChart) {
+        congestionChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels,
+            datasets: [{
+              label: "Congestion index (latest 5-min window)",
+              data: values
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                ticks: { color: "#9ca3af" },
+                grid: { display: false }
+              },
+              y: {
+                ticks: { color: "#9ca3af" },
+                grid: { color: "rgba(31, 41, 55, 0.8)" },
+                beginAtZero: true
+              }
+            },
+            plugins: {
+              legend: {
+                labels: { color: "#e5e7eb", font: { size: 10 } }
+              }
+            }
+          }
+        });
+      } else {
+        congestionChart.data.labels = labels;
+        congestionChart.data.datasets[0].data = values;
+        congestionChart.update();
+      }
     }
 
     async function loadAggregates() {
@@ -509,6 +572,9 @@
             </article>
           `;
         }).join("");
+
+        // update graph with same data
+        updateChart(data);
       } catch (e) {
         console.error(e);
         err.textContent = "Failed to load aggregates. Is Spark batch/stream and PostgreSQL running?";
@@ -566,10 +632,8 @@
 
     document.getElementById("btn-refresh").addEventListener("click", refreshAll);
 
-    // Initial load
+    // Initial load + auto refresh
     refreshAll();
-
-    // Auto-refresh every 5s
     setInterval(refreshAll, 5000);
   </script>
 </body>
