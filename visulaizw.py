@@ -2,6 +2,8 @@ import psycopg2
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+
 conn = psycopg2.connect(
     host="localhost",
     dbname="smart_city_traffic",
