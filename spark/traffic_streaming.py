@@ -1,3 +1,4 @@
+# spark/traffic_streaming.py
 from pyspark.sql import SparkSession
 from pyspark.sql.types import (
     StructType, StructField, StringType, LongType, IntegerType, DoubleType
@@ -33,7 +34,10 @@ raw_stream = (
         .format("kafka")
         .option("kafka.bootstrap.servers", KAFKA_BOOTSTRAP)
         .option("subscribe", TRAFFIC_TOPIC)
+        # Start from latest available data
         .option("startingOffsets", "latest")
+        # IMPORTANT: don't crash if Kafka has deleted old offsets
+        .option("failOnDataLoss", "false")
         .load()
 )
 
