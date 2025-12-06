@@ -51,7 +51,7 @@ smart_city_security/
 ---
 
 ## Quick Start
-
+for each crete seperate terminal 
 1. **Initialize Docker Containers**
     ```sh
     docker-compose up -d
