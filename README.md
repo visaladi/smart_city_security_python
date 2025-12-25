@@ -49,6 +49,38 @@ smart_city_security/
 - PostgreSQL server (or use Docker)
 
 ---
+## Configuration (important files & envs)
+
+- docker-compose.yml — contains service definitions and ports (Kafka, Zookeeper, Postgres, Grafana, etc.)
+- dashboard_api.py — FastAPI service providing REST endpoints. Configure DB URL and credentials via environment variables.
+- db_loader.py — configure Kafka bootstrap servers, topic name (`traffic_raw`), and Postgres connection string.
+- spark/traffic_streaming.py — configure `KAFKA_BOOTSTRAP`, topic name and checkpoint locations. Tune `withWatermark` and window durations here.
+- static/index.html — dashboard UI; contains client-side polling logic and graphs. Images and links are intentionally left intact.
+
+Default Postgres credentials used in examples:
+- User: `postgres`
+- Pass: `0956`
+- DB: `smart_city_traffic`
+
+Persistence tables (example simplified schemas used by this project):
+- traffic_readings (raw events)
+  - id SERIAL PRIMARY KEY
+  - sensor_id TEXT
+  - event_time TIMESTAMP
+  - vehicle_count INTEGER
+  - avg_speed DOUBLE PRECISION
+  - raw_payload JSONB
+- traffic_aggregates (windowed aggregates)
+  - id SERIAL PRIMARY KEY
+  - sensor_id TEXT
+  - window_start TIMESTAMP
+  - window_end TIMESTAMP
+  - avg_vehicle_count DOUBLE PRECISION
+  - avg_speed DOUBLE PRECISION
+  - congestion_index DOUBLE PRECISION
+  - created_at TIMESTAMP DEFAULT now()
+
+---
 
 ## Quick Start
 for each crete seperate terminal 
@@ -140,6 +172,18 @@ for each crete seperate terminal
 - **Postgres connection:** Check credentials, port, and DB name match defaults
 - **Kafka not receiving events:** Check topic name config in all scripts (`traffic_raw`)
 - **Dashboard or API not loading:** Make sure backend services (DB Loader, Spark job, FastAPI API) are running
+
+---
+## Development & Contribution
+
+- Coding style: follow PEP8 for Python code
+- Tests: add unit tests for producers/loaders and integration tests for DB writes
+- To contribute:
+  - Fork the repository
+  - Create a feature branch
+  - Open a Pull Request with a clear description and any screenshots or logs
+
+Contact: open an issue in this repo for questions, feature requests or bugs
 
 ---
 
