@@ -55,6 +55,33 @@ def get_latest_aggregates():
     conn.close()
     return rows
 
+@app.get("/api/peak/last24")
+def last24_peak():
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute("SELECT MAX(generated_at) FROM last24_peak_hour_report")
+    latest = cur.fetchone()[0]
+    if latest is None:
+        cur.close(); conn.close()
+        return []
+
+    cur.execute("""
+        SELECT sensor_id, peak_hour, total_vehicles, needs_police
+        FROM last24_peak_hour_report
+        WHERE generated_at = %s
+        ORDER BY total_vehicles DESC;
+    """, (latest,))
+
+    rows = cur.fetchall()
+    cur.close(); conn.close()
+
+    return [
+        {"sensor_id": r[0], "peak_hour": str(r[1]), "total_vehicles": int(r[2]), "needs_police": bool(r[3])}
+        for r in rows
+    ]
+
+
 
 @app.get("/api/raw/latest")
 def get_latest_raw(limit: int = 50):

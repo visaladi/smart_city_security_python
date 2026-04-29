@@ -1,0 +1,42 @@
+[2026-01-25T06:09:49.063+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-25T06:09:49.242+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: smart_city_traffic_batch_dag.ensure_report_table manual__2026-01-25T05:57:51.306968+00:00 [queued]>
+[2026-01-25T06:09:49.353+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: smart_city_traffic_batch_dag.ensure_report_table manual__2026-01-25T05:57:51.306968+00:00 [queued]>
+[2026-01-25T06:09:49.379+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-01-25T06:09:49.429+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): ensure_report_table> on 2026-01-25 05:57:51.306968+00:00
+[2026-01-25T06:09:49.846+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'smart_city_traffic_batch_dag', 'ensure_report_table', 'manual__2026-01-25T05:57:51.306968+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/smart_city_traffic_batch_dag.py', '--cfg-path', '/tmp/tmpy92t5vou']
+[2026-01-25T06:09:50.101+0000] {standard_task_runner.py:91} INFO - Job 8: Subtask ensure_report_table
+[2026-01-25T06:09:50.223+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=180) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-01-25T06:09:50.182+0000] {standard_task_runner.py:64} INFO - Started process 201 to run task
+[2026-01-25T06:09:51.217+0000] {task_command.py:426} INFO - Running <TaskInstance: smart_city_traffic_batch_dag.ensure_report_table manual__2026-01-25T05:57:51.306968+00:00 [running]> on host c9ef2fa36395
+[2026-01-25T06:10:08.026+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='visal' AIRFLOW_CTX_DAG_ID='smart_city_traffic_batch_dag' AIRFLOW_CTX_TASK_ID='ensure_report_table' AIRFLOW_CTX_EXECUTION_DATE='2026-01-25T05:57:51.306968+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-25T05:57:51.306968+00:00'
+[2026-01-25T06:10:08.048+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-25T06:10:08.461+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-25T06:10:08.463+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/smart_city_traffic_batch_dag.py", line 30, in ensure_report_table
+    cur.execute("""
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+DETAIL:  Key (typname, typnamespace)=(daily_peak_hour_report, 2200) already exists.
+
+[2026-01-25T06:10:08.617+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=smart_city_traffic_batch_dag, task_id=ensure_report_table, run_id=manual__2026-01-25T05:57:51.306968+00:00, execution_date=20260125T055751, start_date=20260125T060949, end_date=20260125T061008
+[2026-01-25T06:10:08.679+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 8 for task ensure_report_table (duplicate key value violates unique constraint "pg_type_typname_nsp_index"
+DETAIL:  Key (typname, typnamespace)=(daily_peak_hour_report, 2200) already exists.
+; 201)
+[2026-01-25T06:10:09.606+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-01-25T06:10:09.885+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-25T06:10:09.896+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -435,6 +435,32 @@
         <div id="aggregates-cards" class="cards-grid">
           <!-- Filled by JS -->
         </div>
+        <div id="last24-container" style="margin-top:0.9rem;">
+          <div class="panel-header" style="margin-bottom:0.4rem;">
+            <div>
+              <h2>Peak Traffic Hour (Last 24 Hours)</h2>
+              <span>Computed from <code>traffic_readings</code> → stored in <code>last24_peak_hour_report</code></span>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Sensor</th>
+                  <th>Peak hour</th>
+                  <th>Total vehicles</th>
+                  <th>Police</th>
+                </tr>
+              </thead>
+              <tbody id="last24-body">
+                <tr><td colspan="4" style="text-align:center;color:#9ca3af;padding:0.7rem;">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="last24-error" class="error-banner" style="display:none;"></div>
+        </div>
 
         <!-- Graph below cards -->
         <div id="chart-container">
@@ -608,6 +634,37 @@
         err.style.display = "block";
       }
     }
+    async function loadLast24Peak() {
+      const body = document.getElementById("last24-body");
+      const err = document.getElementById("last24-error");
+      err.style.display = "none";
+
+      try {
+        const res = await fetch(`${API_BASE}/api/peak/last24`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          body.innerHTML = `<tr><td colspan="4" style="text-align:center;color:#9ca3af;padding:0.7rem;">
+            No last-24h report yet. Trigger Airflow DAG first.
+          </td></tr>`;
+          return;
+        }
+
+        body.innerHTML = data.map(r => `
+          <tr>
+            <td class="td-sensor">${r.sensor_id}</td>
+            <td>${fmtTime(r.peak_hour)}</td>
+            <td>${r.total_vehicles}</td>
+            <td>${r.needs_police ? "<span style='color:#fca5a5;font-weight:700;'>YES</span>" : "NO"}</td>
+          </tr>
+        `).join("");
+      } catch (e) {
+        console.error(e);
+        err.textContent = "Failed to load last-24h peak report. Is the API running and Airflow report generated?";
+        err.style.display = "block";
+      }
+    }
 
     async function loadRaw() {
       const body = document.getElementById("raw-table-body");
@@ -677,7 +734,7 @@
     }
 
     async function refreshAll() {
-      await Promise.all([loadAggregates(), loadRaw()]);
+      await Promise.all([loadAggregates(), loadRaw(), loadLast24Peak()]);
       updateLastUpdated();
     }
 

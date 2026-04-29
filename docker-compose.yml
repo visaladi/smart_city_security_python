@@ -60,9 +60,10 @@ services:
     depends_on:
       - postgres
     environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:0956@postgres:5432/smart_city_traffic
-
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:0956@postgres-traffic:5432/smart_city_traffic
+      AIRFLOW__CORE__FERNET_KEY: "0123456789abcdef0123456789abcdef"
     ports:
       - "8080:8080"
     command: webserver
@@ -70,16 +71,38 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
+      - ./reports:/opt/airflow/reports
 
   airflow-scheduler:
     image: apache/airflow:2.9.3
     depends_on:
       - airflow-webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:0956@postgres-traffic:5432/smart_city_traffic
+      AIRFLOW__CORE__FERNET_KEY: "0123456789abcdef0123456789abcdef"
     command: scheduler
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
+      - ./reports:/opt/airflow/reports
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    depends_on:
+      - postgres
+    ports:
+      - "3001:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - grafana_data:/var/lib/grafana
 
 volumes:
   postgres_data:
+  grafana_data:
