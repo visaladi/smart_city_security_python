@@ -458,9 +458,28 @@
               </tbody>
             </table>
           </div>
+        <div id="last24-error" class="error-banner" style="display:none;"></div>
+</div>
 
-          <div id="last24-error" class="error-banner" style="display:none;"></div>
-        </div>
+<div id="police-panel" style="margin-top:1rem;">
+  <div class="panel-header" style="margin-bottom:0.4rem;">
+    <div>
+      <h2>Police Intervention Recommendation</h2>
+      <span>Based on highest traffic volume in the latest 24-hour report</span>
+    </div>
+  </div>
+
+  <div id="police-recommendation-card"
+       style="padding:1rem;border-radius:0.9rem;border:1px solid rgba(220,38,38,0.45);
+              background:rgba(220,38,38,0.12);color:#fecaca;font-size:0.9rem;">
+    Loading recommendation...
+  </div>
+</div>
+
+<!-- Graph below cards -->
+
+
+            <!-- Graph below cards -->
 
         <!-- Graph below cards -->
         <div id="chart-container">
@@ -666,6 +685,38 @@
       }
     }
 
+    async function loadPoliceRecommendation() {
+          const card = document.getElementById("police-recommendation-card");
+
+          try {
+            const res = await fetch(`${API_BASE}/api/police/intervention`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+            const data = await res.json();
+
+            if (!Array.isArray(data) || data.length === 0) {
+              card.innerHTML = "No police recommendation available yet. Trigger Airflow DAG first.";
+              return;
+            }
+
+            const police = data.find(r => r.needs_police === true);
+
+            if (!police) {
+              card.innerHTML = "✅ No physical police intervention required currently.";
+              return;
+            }
+
+            card.innerHTML = `
+              🚨 <strong>Deploy police at Sensor ${police.sensor_id}</strong><br><br>
+              <strong>Peak Hour:</strong> ${fmtTime(police.peak_hour)}<br>
+              <strong>Total Vehicles:</strong> ${police.total_vehicles}<br><br>
+              This junction has the highest traffic load and requires physical traffic police support.
+            `;
+          } catch (e) {
+            console.error(e);
+            card.innerHTML = "Failed to load police intervention recommendation.";
+          }
+      }
     async function loadRaw() {
       const body = document.getElementById("raw-table-body");
       const err = document.getElementById("raw-error");
@@ -734,8 +785,13 @@
     }
 
     async function refreshAll() {
-      await Promise.all([loadAggregates(), loadRaw(), loadLast24Peak()]);
-      updateLastUpdated();
+        await Promise.all([
+          loadAggregates(),
+          loadRaw(),
+          loadLast24Peak(),
+          loadPoliceRecommendation()
+        ]);
+        updateLastUpdated();
     }
 
     document.getElementById("btn-refresh").addEventListener("click", refreshAll);

@@ -1,0 +1,18 @@
+[2026-05-03T15:24:18.853+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-03T15:24:19.040+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: smart_city_traffic_batch_dag.ensure_report_table scheduled__2026-05-02T01:00:00+00:00 [queued]>
+[2026-05-03T15:24:19.107+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: smart_city_traffic_batch_dag.ensure_report_table scheduled__2026-05-02T01:00:00+00:00 [queued]>
+[2026-05-03T15:24:19.109+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-03T15:24:19.172+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): ensure_report_table> on 2026-05-02 01:00:00+00:00
+[2026-05-03T15:24:19.253+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'smart_city_traffic_batch_dag', 'ensure_report_table', 'scheduled__2026-05-02T01:00:00+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/smart_city_traffic_batch_dag.py', '--cfg-path', '/tmp/tmp3dlykrpn']
+[2026-05-03T15:24:19.273+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=175) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-03T15:24:19.274+0000] {standard_task_runner.py:91} INFO - Job 53: Subtask ensure_report_table
+[2026-05-03T15:24:19.276+0000] {standard_task_runner.py:64} INFO - Started process 182 to run task
+[2026-05-03T15:24:19.545+0000] {task_command.py:426} INFO - Running <TaskInstance: smart_city_traffic_batch_dag.ensure_report_table scheduled__2026-05-02T01:00:00+00:00 [running]> on host 65f132765eb2
+[2026-05-03T15:24:21.022+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='visal' AIRFLOW_CTX_DAG_ID='smart_city_traffic_batch_dag' AIRFLOW_CTX_TASK_ID='ensure_report_table' AIRFLOW_CTX_EXECUTION_DATE='2026-05-02T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-05-02T01:00:00+00:00'
+[2026-05-03T15:24:21.025+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-03T15:24:21.149+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-05-03T15:24:21.151+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-03T15:24:21.183+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=smart_city_traffic_batch_dag, task_id=ensure_report_table, run_id=scheduled__2026-05-02T01:00:00+00:00, execution_date=20260502T010000, start_date=20260503T152419, end_date=20260503T152421
+[2026-05-03T15:24:21.411+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-05-03T15:24:21.536+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-05-03T15:24:21.544+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

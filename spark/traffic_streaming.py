@@ -1,15 +1,21 @@
 # spark/traffic_streaming.py
+
 from pyspark.sql import SparkSession
 from pyspark.sql.types import (
     StructType, StructField, StringType, LongType, IntegerType, DoubleType
 )
 from pyspark.sql.functions import (
     col, from_json, from_unixtime, to_timestamp,
-    window, avg, count, when
+    window, avg, count, when, lit
 )
 
 KAFKA_BOOTSTRAP = "localhost:29092"
-TRAFFIC_TOPIC = "traffic_raw"   # same as your producer
+TRAFFIC_TOPIC = "traffic_raw"
+
+DB_URL = "jdbc:postgresql://localhost:5432/smart_city_traffic"
+DB_USER = "postgres"
+DB_PASSWORD = "0956"
+DB_DRIVER = "org.postgresql.Driver"
 
 spark = (
     SparkSession.builder
@@ -20,23 +26,97 @@ spark = (
 
 spark.sparkContext.setLogLevel("WARN")
 
-# Match your producer schema
 schema = StructType([
     StructField("sensor_id", StringType(), True),
-    StructField("timestamp", LongType(), True),       # epoch seconds
+    StructField("timestamp", LongType(), True),
     StructField("vehicle_count", IntegerType(), True),
     StructField("avg_speed", DoubleType(), True),
 ])
 
-# 1) Read Kafka stream
+
+# ---------------- POSTGRES WRITERS ----------------
+
+def write_readings_to_postgres(batch_df, batch_id):
+    print(f"\n========== RAW BATCH {batch_id} ==========")
+    batch_df.show(10, truncate=False)
+    print(f"Raw rows: {batch_df.count()}")
+
+    (
+        batch_df
+        .selectExpr(
+            "sensor_id",
+            "unix_timestamp(event_time) as timestamp",
+            "cast(vehicle_count as int) as vehicle_count",
+            "avg_speed"
+        )
+        .write
+        .format("jdbc")
+        .option("url", DB_URL)
+        .option("dbtable", "traffic_readings")
+        .option("user", DB_USER)
+        .option("password", DB_PASSWORD)
+        .option("driver", DB_DRIVER)
+        .mode("append")
+        .save()
+    )
+
+def write_aggregates_to_postgres(batch_df, batch_id):
+    print(f"\n========== AGGREGATE BATCH {batch_id} ==========")
+    batch_df.show(10, truncate=False)
+    print(f"Aggregate rows: {batch_df.count()}")
+
+    (
+        batch_df
+        .write
+        .format("jdbc")
+        .option("url", DB_URL)
+        .option("dbtable", "traffic_aggregates")
+        .option("user", DB_USER)
+        .option("password", DB_PASSWORD)
+        .option("driver", DB_DRIVER)
+        .mode("append")
+        .save()
+    )
+
+
+def write_alerts_to_postgres(batch_df, batch_id):
+    print(f"\n========== ALERT BATCH {batch_id} ==========")
+    batch_df.show(10, truncate=False)
+    print(f"Alert rows: {batch_df.count()}")
+
+    alerts_out = (
+        batch_df
+        .selectExpr(
+            "sensor_id",
+            "event_time",
+            "avg_speed",
+            "cast(vehicle_count as int) as vehicle_count"
+        )
+        .withColumn("alert_message", lit("Critical traffic: avg_speed below 10 km/h"))
+    )
+
+    (
+        alerts_out
+        .write
+        .format("jdbc")
+        .option("url", DB_URL)
+        .option("dbtable", "critical_traffic_alerts")
+        .option("user", DB_USER)
+        .option("password", DB_PASSWORD)
+        .option("driver", DB_DRIVER)
+        .mode("append")
+        .save()
+    )
+
+
+# ---------------- STREAMING PIPELINE ----------------
+
 raw_stream = (
     spark.readStream
         .format("kafka")
         .option("kafka.bootstrap.servers", KAFKA_BOOTSTRAP)
         .option("subscribe", TRAFFIC_TOPIC)
-        # Start from latest available data
         .option("startingOffsets", "latest")
-        # IMPORTANT: don't crash if Kafka has deleted old offsets
         .option("failOnDataLoss", "false")
         .load()
 )
@@ -54,7 +134,6 @@ parsed = (
         .where(col("event_time").isNotNull())
 )
 
-# 2) 5-minute windowed congestion metrics (streaming)
 windowed = (
     parsed
         .withWatermark("event_time", "10 minutes")
@@ -80,32 +159,36 @@ congestion = (
             col("sensor_id"),
             col("window.start").alias("window_start"),
             col("window.end").alias("window_end"),
-            col("records"),
+            col("records").cast("int").alias("records"),
             col("avg_vehicle_count"),
             col("avg_speed"),
             col("congestion_index"),
         )
 )
 
-# 3) Critical alerts (avg_speed < 10)
 alerts = parsed.where(col("avg_speed") < 10)
 
-# Sink 1: print congestion metrics
+
+query_readings = (
+    parsed.writeStream
+        .foreachBatch(write_readings_to_postgres)
+        .outputMode("append")
+        .option("checkpointLocation", "file:///C:/tmp/spark_checkpoints/readings")
+        .start()
+)
+
 query_congestion = (
     congestion.writeStream
+        .foreachBatch(write_aggregates_to_postgres)
         .outputMode("update")
-        .format("console")
-        .option("truncate", "false")
         .option("checkpointLocation", "file:///C:/tmp/spark_checkpoints/congestion")
         .start()
 )
 
-# Sink 2: print alerts
 query_alerts = (
     alerts.writeStream
+        .foreachBatch(write_alerts_to_postgres)
         .outputMode("append")
-        .format("console")
-        .option("truncate", "false")
         .option("checkpointLocation", "file:///C:/tmp/spark_checkpoints/alerts")
         .start()
 )

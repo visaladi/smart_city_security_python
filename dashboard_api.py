@@ -58,28 +58,90 @@ def get_latest_aggregates():
 @app.get("/api/peak/last24")
 def last24_peak():
     conn = get_conn()
-    cur = conn.cursor()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-    cur.execute("SELECT MAX(generated_at) FROM last24_peak_hour_report")
-    latest = cur.fetchone()[0]
-    if latest is None:
-        cur.close(); conn.close()
-        return []
+    cur.execute("""
+        DELETE FROM last24_peak_hour_report;
+
+        WITH latest AS (
+            SELECT MAX(to_timestamp("timestamp")) AS max_time
+            FROM traffic_readings
+        ),
+        hourly AS (
+            SELECT
+                sensor_id,
+                date_trunc('hour', to_timestamp("timestamp")) AS peak_hour,
+                SUM(vehicle_count) AS total_vehicles
+            FROM traffic_readings, latest
+            WHERE to_timestamp("timestamp") >= latest.max_time - interval '24 hours'
+            GROUP BY sensor_id, date_trunc('hour', to_timestamp("timestamp"))
+        ),
+        ranked AS (
+            SELECT *,
+                ROW_NUMBER() OVER (
+                    PARTITION BY sensor_id
+                    ORDER BY total_vehicles DESC
+                ) AS rn
+            FROM hourly
+        ),
+        peak_per_sensor AS (
+            SELECT sensor_id, peak_hour, total_vehicles
+            FROM ranked
+            WHERE rn = 1
+        ),
+        worst AS (
+            SELECT sensor_id
+            FROM peak_per_sensor
+            ORDER BY total_vehicles DESC
+            LIMIT 1
+        )
+        INSERT INTO last24_peak_hour_report
+        (generated_at, sensor_id, peak_hour, total_vehicles, needs_police)
+        SELECT
+            NOW(),
+            p.sensor_id,
+            p.peak_hour,
+            p.total_vehicles,
+            p.sensor_id = w.sensor_id
+        FROM peak_per_sensor p
+        CROSS JOIN worst w;
+    """)
+
+    conn.commit()
 
     cur.execute("""
         SELECT sensor_id, peak_hour, total_vehicles, needs_police
         FROM last24_peak_hour_report
-        WHERE generated_at = %s
+        WHERE generated_at = (
+            SELECT MAX(generated_at) FROM last24_peak_hour_report
+        )
         ORDER BY total_vehicles DESC;
-    """, (latest,))
+    """)
 
     rows = cur.fetchall()
-    cur.close(); conn.close()
+    cur.close()
+    conn.close()
+    return rows
 
-    return [
-        {"sensor_id": r[0], "peak_hour": str(r[1]), "total_vehicles": int(r[2]), "needs_police": bool(r[3])}
-        for r in rows
-    ]
+
+@app.get("/api/police/intervention")
+def police_intervention():
+    conn = get_conn()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+    cur.execute("""
+        SELECT sensor_id, peak_hour, total_vehicles, needs_police
+        FROM last24_peak_hour_report
+        WHERE generated_at = (
+            SELECT MAX(generated_at) FROM last24_peak_hour_report
+        )
+        ORDER BY needs_police DESC, total_vehicles DESC;
+    """)
+
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+    return rows
 
 
 
@@ -109,6 +171,24 @@ def get_latest_raw(limit: int = 50):
     conn.close()
     return rows
 
+@app.get("/api/police/intervention")
+def police_intervention():
+    conn = get_conn()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+    cur.execute("""
+        SELECT sensor_id, peak_hour, total_vehicles, needs_police
+        FROM last24_peak_hour_report
+        WHERE generated_at = (
+            SELECT MAX(generated_at) FROM last24_peak_hour_report
+        )
+        ORDER BY needs_police DESC, total_vehicles DESC;
+    """)
+
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+    return rows
 
 # ---------- STATIC FRONTEND ----------
 

@@ -1,0 +1,406 @@
+[2026-05-03T15:24:14.488+0000] {processor.py:161} INFO - Started process (PID=170) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:24:14.496+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:24:14.516+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:24:14.509+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:24:18.023+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:24:18.325+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:24:18.323+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:24:18.502+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:24:18.502+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:24:18.641+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 4.193 seconds
+[2026-05-03T15:24:49.435+0000] {processor.py:161} INFO - Started process (PID=189) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:24:49.441+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:24:49.464+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:24:49.461+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:24:51.884+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:24:52.315+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:24:52.312+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:24:52.561+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:24:52.561+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:24:52.718+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.340 seconds
+[2026-05-03T15:25:23.825+0000] {processor.py:161} INFO - Started process (PID=195) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:25:23.834+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:25:23.894+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:25:23.881+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:25:28.097+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:25:28.508+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:25:28.506+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:25:28.706+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:25:28.705+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:25:28.825+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 5.105 seconds
+[2026-05-03T15:25:59.858+0000] {processor.py:161} INFO - Started process (PID=201) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:25:59.878+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:25:59.958+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:25:59.942+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:26:04.242+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:26:04.559+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:26:04.557+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:26:04.696+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:26:04.695+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:26:04.791+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 5.068 seconds
+[2026-05-03T15:26:35.884+0000] {processor.py:161} INFO - Started process (PID=207) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:26:35.900+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:26:35.964+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:26:35.955+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:26:42.180+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:26:42.645+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:26:42.642+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:26:48.548+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:26:48.547+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:26:48.683+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 12.937 seconds
+[2026-05-03T15:27:19.529+0000] {processor.py:161} INFO - Started process (PID=213) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:27:19.539+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:27:19.575+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:27:19.569+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:27:22.029+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:27:22.381+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:27:22.380+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:27:22.559+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:27:22.559+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:27:22.684+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.249 seconds
+[2026-05-03T15:27:53.881+0000] {processor.py:161} INFO - Started process (PID=219) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:27:53.886+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:27:53.910+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:27:53.906+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:27:56.147+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:27:56.505+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:27:56.503+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:27:56.729+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:27:56.727+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:27:56.841+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.023 seconds
+[2026-05-03T15:28:28.126+0000] {processor.py:161} INFO - Started process (PID=225) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:28:28.136+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:28:28.206+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:28:28.197+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:28:34.080+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:28:34.751+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:28:34.750+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:28:35.003+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:28:35.002+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:28:37.580+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 9.634 seconds
+[2026-05-03T15:29:08.585+0000] {processor.py:161} INFO - Started process (PID=231) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:29:08.593+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:29:08.627+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:29:08.621+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:29:11.026+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:29:11.317+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:29:11.315+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:29:13.261+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:29:13.260+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:29:13.315+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 4.841 seconds
+[2026-05-03T15:29:44.096+0000] {processor.py:161} INFO - Started process (PID=243) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:29:44.104+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:29:44.124+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:29:44.121+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:29:45.430+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:29:45.761+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:29:45.760+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:29:45.949+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:29:45.947+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:29:46.076+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 2.045 seconds
+[2026-05-03T15:30:17.390+0000] {processor.py:161} INFO - Started process (PID=249) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:30:17.404+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:30:17.442+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:30:17.435+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:30:19.708+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:30:20.156+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:30:20.154+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:30:20.381+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:30:20.380+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:30:20.520+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.238 seconds
+[2026-05-03T15:30:52.259+0000] {processor.py:161} INFO - Started process (PID=255) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:30:52.271+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:30:52.353+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:30:52.336+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:30:54.935+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:30:55.211+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:30:55.210+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:30:55.329+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:30:55.328+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:30:55.407+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.314 seconds
+[2026-05-03T15:31:28.400+0000] {processor.py:161} INFO - Started process (PID=261) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:31:28.417+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:31:28.570+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:31:28.564+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:31:31.118+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:31:31.352+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:31:31.350+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:31:36.818+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:31:36.818+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:31:36.902+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 8.962 seconds
+[2026-05-03T15:32:07.605+0000] {processor.py:161} INFO - Started process (PID=267) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:32:07.609+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:32:07.628+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:32:07.625+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:32:10.120+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:32:10.216+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:32:10.215+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:32:10.287+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:32:10.286+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:32:10.340+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 2.774 seconds
+[2026-05-03T15:32:41.215+0000] {processor.py:161} INFO - Started process (PID=273) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:32:41.223+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:32:41.246+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:32:41.241+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:32:42.688+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:32:42.878+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:32:42.877+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:32:42.968+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:32:42.967+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:32:43.019+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.865 seconds
+[2026-05-03T15:33:13.409+0000] {processor.py:161} INFO - Started process (PID=279) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:33:13.413+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:33:13.421+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:33:13.420+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:33:14.661+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:33:14.777+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:33:14.776+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:33:14.842+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:33:14.842+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:33:14.897+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.508 seconds
+[2026-05-03T15:33:45.355+0000] {processor.py:161} INFO - Started process (PID=285) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:33:45.360+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:33:45.367+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:33:45.366+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:33:46.517+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:33:46.613+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:33:46.612+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:33:48.799+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:33:48.799+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:33:48.877+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.570 seconds
+[2026-05-03T15:34:19.351+0000] {processor.py:161} INFO - Started process (PID=291) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:34:19.356+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:34:19.373+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:34:19.371+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:34:21.258+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:34:21.428+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:34:21.427+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:34:21.527+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:34:21.526+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:34:21.590+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 2.287 seconds
+[2026-05-03T15:34:52.058+0000] {processor.py:161} INFO - Started process (PID=297) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:34:52.062+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:34:52.070+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:34:52.069+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:34:53.099+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:34:53.188+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:34:53.187+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:34:53.250+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:34:53.249+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:34:53.296+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.263 seconds
+[2026-05-03T15:35:23.820+0000] {processor.py:161} INFO - Started process (PID=303) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:35:23.822+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:35:23.831+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:35:23.829+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:35:24.757+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:35:24.856+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:35:24.855+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:35:24.923+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:35:24.923+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:35:24.973+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.174 seconds
+[2026-05-03T15:35:55.171+0000] {processor.py:161} INFO - Started process (PID=309) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:35:55.175+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:35:55.184+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:35:55.182+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:35:56.054+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:35:56.139+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:35:56.138+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:35:56.201+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:35:56.200+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:35:58.169+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.024 seconds
+[2026-05-03T15:36:28.887+0000] {processor.py:161} INFO - Started process (PID=315) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:36:28.894+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:36:28.922+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:36:28.918+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:36:30.325+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:36:30.470+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:36:30.469+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:36:31.500+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:36:31.498+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:36:31.554+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 2.746 seconds
+[2026-05-03T15:37:02.117+0000] {processor.py:161} INFO - Started process (PID=321) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:37:02.121+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:37:02.140+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:37:02.138+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:37:03.525+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:37:03.716+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:37:03.715+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:37:03.798+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:37:03.798+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:37:03.862+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.800 seconds
+[2026-05-03T15:37:34.484+0000] {processor.py:161} INFO - Started process (PID=327) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:37:34.487+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:37:34.501+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:37:34.500+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:37:35.785+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:37:35.888+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:37:35.888+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:37:35.948+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:37:35.947+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:37:35.996+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.539 seconds
+[2026-05-03T15:38:06.442+0000] {processor.py:161} INFO - Started process (PID=333) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:38:06.445+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:38:06.459+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:38:06.458+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:38:07.739+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:38:07.843+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:38:07.842+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:38:07.914+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:38:07.913+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:38:09.900+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.487 seconds
+[2026-05-03T15:38:40.210+0000] {processor.py:161} INFO - Started process (PID=339) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:38:40.212+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:38:40.219+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:38:40.218+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:38:41.309+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:38:41.394+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:38:41.393+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:38:41.885+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:38:41.884+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:38:41.934+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.741 seconds
+[2026-05-03T15:39:12.612+0000] {processor.py:161} INFO - Started process (PID=345) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:39:12.619+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:39:12.649+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:39:12.645+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:39:13.774+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:39:14.879+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:39:14.878+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:39:14.931+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:39:14.930+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:39:15.007+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 2.458 seconds
+[2026-05-03T15:39:45.834+0000] {processor.py:161} INFO - Started process (PID=351) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:39:45.852+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:39:45.896+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:39:45.880+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:39:47.919+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:39:48.116+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:39:48.116+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:39:48.207+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:39:48.207+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:39:48.281+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 2.564 seconds
+[2026-05-03T15:40:19.164+0000] {processor.py:161} INFO - Started process (PID=357) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:40:19.172+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:40:19.200+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:40:19.196+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:40:21.292+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:40:21.444+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:40:21.443+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:40:21.546+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:40:21.546+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:40:23.357+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 4.308 seconds
+[2026-05-03T15:40:54.055+0000] {processor.py:161} INFO - Started process (PID=363) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:40:54.063+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:40:54.090+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:40:54.086+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:40:55.617+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:40:55.849+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:40:55.848+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:40:57.864+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:40:57.864+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:40:57.922+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.951 seconds
+[2026-05-03T15:41:28.534+0000] {processor.py:161} INFO - Started process (PID=369) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:41:28.540+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:41:28.566+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:41:28.563+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:41:31.790+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:41:33.616+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:41:33.615+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:41:33.672+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:41:33.672+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:41:33.731+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 5.266 seconds
+[2026-05-03T15:42:04.465+0000] {processor.py:161} INFO - Started process (PID=375) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:42:04.473+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:42:04.501+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:42:04.496+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:42:06.109+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:42:06.301+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:42:06.300+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:42:06.397+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:42:06.397+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:42:06.456+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 2.060 seconds
+[2026-05-03T15:42:36.786+0000] {processor.py:161} INFO - Started process (PID=381) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:42:36.793+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:42:36.806+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:42:36.803+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:42:37.853+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:42:37.939+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:42:37.938+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:42:37.992+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:42:37.991+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:42:39.586+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 2.848 seconds
+[2026-05-03T15:43:10.229+0000] {processor.py:161} INFO - Started process (PID=387) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:43:10.240+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:43:10.249+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:43:10.247+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:43:11.407+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:43:11.506+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:43:11.505+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:43:12.217+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:43:12.216+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:43:12.282+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 2.078 seconds
+[2026-05-03T15:43:42.595+0000] {processor.py:161} INFO - Started process (PID=393) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:43:42.598+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:43:42.604+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:43:42.603+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:43:43.390+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:43:43.897+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:43:43.896+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:43:43.942+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:43:43.942+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:43:43.982+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.410 seconds
+[2026-05-03T15:44:14.366+0000] {processor.py:161} INFO - Started process (PID=399) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:44:14.368+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:44:14.372+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:44:14.372+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:44:15.701+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:44:15.772+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:44:15.771+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:44:15.813+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:44:15.813+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:44:15.852+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.505 seconds
+[2026-05-03T15:44:46.197+0000] {processor.py:161} INFO - Started process (PID=405) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:44:46.199+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:44:46.203+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:44:46.203+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:44:47.462+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:44:47.519+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:44:47.518+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:44:47.557+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:44:47.556+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:44:47.599+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.414 seconds
+[2026-05-03T15:45:18.012+0000] {processor.py:161} INFO - Started process (PID=411) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:45:18.014+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:45:18.021+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:45:18.020+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:45:19.159+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:45:19.240+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:45:19.239+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:45:19.761+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:45:19.761+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:45:19.809+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.812 seconds
+[2026-05-03T15:45:50.221+0000] {processor.py:161} INFO - Started process (PID=417) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:45:50.225+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:45:50.230+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:45:50.229+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:45:51.122+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:45:51.546+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:45:51.546+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:45:51.586+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:45:51.586+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:45:51.627+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.425 seconds
+[2026-05-03T15:46:22.039+0000] {processor.py:161} INFO - Started process (PID=423) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:46:22.042+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:46:22.047+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:46:22.047+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:46:23.069+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:46:23.143+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:46:23.142+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:46:23.216+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:46:23.215+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:46:23.261+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.237 seconds
+[2026-05-03T15:46:53.853+0000] {processor.py:161} INFO - Started process (PID=429) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:46:53.856+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:46:53.870+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:46:53.868+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:46:55.527+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:46:55.629+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:46:55.628+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:46:55.677+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:46:55.676+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:46:55.722+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.914 seconds
+[2026-05-03T15:47:26.098+0000] {processor.py:161} INFO - Started process (PID=435) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:47:26.102+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:47:26.106+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:47:26.105+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:47:26.925+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:47:27.036+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:47:27.035+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:47:27.471+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:47:27.471+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:47:27.511+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.424 seconds
+[2026-05-03T15:47:57.914+0000] {processor.py:161} INFO - Started process (PID=441) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:47:57.916+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:47:57.920+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:47:57.920+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:47:58.706+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:47:59.303+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:47:59.302+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:47:59.363+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:47:59.362+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:47:59.431+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.531 seconds
+[2026-05-03T15:48:29.809+0000] {processor.py:161} INFO - Started process (PID=447) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:48:29.815+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:48:29.824+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:48:29.823+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:48:31.406+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:48:31.472+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:48:31.471+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:48:31.543+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:48:31.543+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:48:31.590+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.799 seconds
+[2026-05-03T15:49:02.020+0000] {processor.py:161} INFO - Started process (PID=453) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:49:02.022+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:49:02.027+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:49:02.026+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:49:03.288+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:49:03.351+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:49:03.350+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:49:03.394+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:49:03.393+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:49:03.439+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.434 seconds
+[2026-05-03T15:49:34.008+0000] {processor.py:161} INFO - Started process (PID=459) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:49:34.010+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:49:34.015+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:49:34.014+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:49:35.061+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:49:35.124+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:49:35.123+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:49:35.172+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:49:35.172+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:49:35.216+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.231 seconds
+[2026-05-03T15:50:05.625+0000] {processor.py:161} INFO - Started process (PID=465) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:50:05.627+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:50:05.632+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:50:05.632+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:50:06.800+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:50:06.875+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:50:06.874+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:50:06.924+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:50:06.923+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:50:06.964+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.353 seconds
+[2026-05-03T15:50:37.359+0000] {processor.py:161} INFO - Started process (PID=471) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:50:37.361+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:50:37.365+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:50:37.364+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:50:38.489+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:50:38.574+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:50:38.573+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:50:38.625+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:50:38.625+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:50:38.670+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 1.324 seconds
+[2026-05-03T15:51:09.286+0000] {processor.py:161} INFO - Started process (PID=477) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:51:09.292+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:51:09.314+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:51:09.311+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:51:13.077+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:51:13.496+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:51:13.494+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:51:13.595+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:51:13.594+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:51:13.680+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 4.468 seconds
+[2026-05-03T15:51:44.548+0000] {processor.py:161} INFO - Started process (PID=483) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:51:44.561+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:51:44.607+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:51:44.601+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:51:51.280+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:51:51.493+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:51:51.490+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:51:51.562+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:51:51.561+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:51:51.620+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 7.188 seconds
+[2026-05-03T15:52:22.242+0000] {processor.py:161} INFO - Started process (PID=489) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:52:22.252+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:52:22.297+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:52:22.291+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:52:27.619+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:52:27.747+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:52:27.746+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:52:27.834+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:52:27.834+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:52:27.899+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 5.748 seconds
+[2026-05-03T15:53:00.031+0000] {processor.py:161} INFO - Started process (PID=495) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:53:00.051+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:53:00.178+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:53:00.156+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:53:04.476+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:53:04.693+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:53:04.691+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:53:04.766+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:53:04.765+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:53:04.831+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 5.498 seconds
+[2026-05-03T15:53:35.989+0000] {processor.py:161} INFO - Started process (PID=501) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:53:36.002+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:53:36.077+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:53:36.070+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:53:44.831+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:53:45.399+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:53:45.397+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:53:45.520+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:53:45.520+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:53:45.687+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 9.810 seconds
+[2026-05-03T15:54:18.981+0000] {processor.py:161} INFO - Started process (PID=507) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:54:18.991+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:54:19.112+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:54:19.095+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:54:29.200+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:54:29.518+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:54:29.509+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:54:29.663+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:54:29.660+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:54:29.777+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 11.057 seconds
+[2026-05-03T15:55:00.942+0000] {processor.py:161} INFO - Started process (PID=513) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:55:00.953+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:55:00.991+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:55:00.986+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:55:07.603+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:55:07.822+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:55:07.820+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:55:07.900+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:55:07.899+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:55:07.953+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 7.119 seconds
+[2026-05-03T15:55:38.597+0000] {processor.py:161} INFO - Started process (PID=519) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:55:38.609+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:55:38.649+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:55:38.644+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:55:41.725+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:55:41.924+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:55:41.923+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:55:41.992+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:55:41.992+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:55:42.058+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 3.587 seconds
+[2026-05-03T15:56:13.153+0000] {processor.py:161} INFO - Started process (PID=525) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:56:13.209+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:56:13.373+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:56:13.358+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:56:16.882+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:56:17.074+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:56:17.071+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:56:17.142+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:56:17.141+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:56:17.202+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 4.506 seconds
+[2026-05-03T15:56:48.308+0000] {processor.py:161} INFO - Started process (PID=531) to work on /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:56:48.322+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/smart_city_traffic_batch_dag.py for tasks to queue
+[2026-05-03T15:56:48.407+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:56:48.392+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:56:57.892+0000] {processor.py:840} INFO - DAG(s) 'smart_city_traffic_batch_dag' retrieved from /opt/airflow/dags/smart_city_traffic_batch_dag.py
+[2026-05-03T15:56:58.321+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:56:58.319+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2026-05-03T15:56:58.409+0000] {logging_mixin.py:188} INFO - [2026-05-03T15:56:58.408+0000] {dag.py:3947} INFO - Setting next_dagrun for smart_city_traffic_batch_dag to 2026-05-03 01:00:00+00:00, run_after=2026-05-04 01:00:00+00:00
+[2026-05-03T15:56:58.488+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/smart_city_traffic_batch_dag.py took 10.357 seconds
