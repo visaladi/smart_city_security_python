@@ -12867,3 +12867,14 @@ File Path                                          PID    Runtime      # DAGs   
 -------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
 /opt/airflow/dags/smart_city_traffic_batch_dag.py                           1           0  2.47s           2026-05-08T13:14:25
 ================================================================================
+[2026-05-08T13:14:56.818+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                            PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/smart_city_traffic_batch_dag.py   1066  1.29s             1           0  2.47s           2026-05-08T13:14:25
+================================================================================
+[2026-05-08T13:15:02.463+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2026-05-08T13:15:02.534+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2026-05-08T13:15:15.852+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15

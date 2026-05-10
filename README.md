@@ -5,7 +5,7 @@
 A real-time traffic monitoring & analytics pipeline for smart cities, using Python, Kafka, Spark Structured Streaming, PostgreSQL, Airflow, FastAPI, and Grafana.
 
 ![Dashboard Screenshot](images/ui.png)
-
+![Dashboard Screenshot](images/ui3.png)
 postgradesql monotoring from the grafna 
 
 ![Dashboard Screenshot](images/ui2.png)
@@ -27,6 +27,7 @@ smart_city_security/
 └── static/
     └── index.html              # Dashboard UI
 ```
+![Dashboard Screenshot](images/archi.png)
 
 **Main Components:**
 - **Kafka**: Sensor event ingestion (`traffic_raw` topic)
